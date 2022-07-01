@@ -156,6 +156,12 @@ class Pagination
 		return (int) $this->get('pageCurrent');
 	}
 
+	function getCounterStart() : int
+	{
+		$start = $this->getLimitStart();
+		return ($start + 1);
+	}
+
 	function render(HtmlElement $element,
         string $name, array $options = []) : HtmlElement
 	{
