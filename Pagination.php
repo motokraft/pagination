@@ -162,6 +162,20 @@ class Pagination
 		return ($start + 1);
 	}
 
+	function getCounterStop() : int
+	{
+		$current = $this->getPageCurrent();
+		$total = $this->getTotal();
+		$limit = $this->getLimit();
+
+		if(($current * $limit) > $total)
+		{
+			return $total;
+		}
+
+		return ($current * $limit);
+	}
+
 	function render(HtmlElement $element,
         string $name, array $options = []) : HtmlElement
 	{
